@@ -16,5 +16,5 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y curl
-          curl http://10.60.21.169:3000/health -v
+          curl http://10.60.21.169:3000/status -v
       - run: echo "🍏 This job's status is ${{ job.status }}."
