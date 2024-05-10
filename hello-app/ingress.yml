@@ -13,7 +13,7 @@ spec:
         path: "/"
         backend:
           service:
-            name: hello-kubernetes-first
+            name: helloweb
             port:
               number: 80
   - host: "hw2.helloweb.xxx"
@@ -23,6 +23,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: hello-kubernetes-second
+            name: helloweb
             port:
               number: 80
