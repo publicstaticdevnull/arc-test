@@ -19,7 +19,7 @@ spec:
         averageUtilization: 50
 status:
   observedGeneration: 1
-  lastScaleTime: 1
+  lastScaleTime: "2006-01-02T15:04:05Z"
   currentReplicas: 1
   desiredReplicas: 1
   currentMetrics:
