@@ -18,8 +18,8 @@ spec:
         image: registry.k8s.io/hpa-example
         ports:
         - containerPort: 80
-        nodeSelector:
-          disktype: ide
+        # nodeSelector:
+        #   disktype: ide
         resources:
           limits:
             cpu: 20m
