@@ -1,26 +1,31 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: php-apache
+  name: php-apache-selector
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      run: php-apache
+      run: php-apache-selector
   template:
     metadata:
       labels:
-        run: php-apache
+        run: php-apache-selector
     spec:
       containers:
-      - name: php-apache
+      - name: php-apache-selector
         image: registry.k8s.io/hpa-example
         ports:
         - containerPort: 80
+        nodeSelector:
+          disktype: ide
         resources:
           limits:
-            cpu: 100m
+            cpu: 20m
           requests:
-            cpu: 50m
+            cpu: 10m
+  
 ---
 apiVersion: v1
 kind: Service
@@ -33,3 +38,15 @@ spec:
   - port: 80
   selector:
     run: php-apache
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-apache-selector
+  labels:
+    run: php-apache-selector
+spec:
+  ports:
+  - port: 80
+  selector:
+    run: php-apache-selector
