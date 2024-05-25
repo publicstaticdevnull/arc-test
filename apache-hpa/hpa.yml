@@ -1,13 +1,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: php-apache-hpa
+  name: apache-selector
   namespace: apache-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: php-apache-selector
+    name: apache-selector
   minReplicas: 1
   maxReplicas: 3
   metrics:
